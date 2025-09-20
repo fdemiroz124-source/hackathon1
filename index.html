@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürdürülebilir Giyim</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Kodları: Sitenin tasarımı ve görselliği burada tanımlanır. */
+        :root {
+            --primary-color: #55a630;
+            --secondary-color: #8ac926;
+            --text-color: #2b2d42;
+            --bg-light: #f4f6f2;
+            --bg-white: #ffffff;
+            --card-bg: #e9ecef;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x800?text=Giyim+Atiklari+Manzarasi') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        /* Akordeon Kartları için Yeni Stil */
+        .accordion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .accordion-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+        
+        .accordion-header {
+            width: 100%;
+            padding: 30px;
+            border: none;
+            background-color: transparent;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+            text-align: center;
+            transition: background-color var(--transition-speed) ease;
+        }
+        
+        .accordion-header:hover, .accordion-header.active {
+            background-color: #d6dbd2;
+        }
+
+        .accordion-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-speed) ease-out;
+        }
+
+        .accordion-content.active {
+            max-height: 500px; /* İçerik boyutu ne kadar olursa olsun açılmasını sağlar */
+        }
+
+        .accordion-content p {
+            margin: 0 0 30px 0;
+        }
+
+        /* Kayıt Formu ve Footer stili */
+        #signup-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        #signup-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #signup-form button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        #form-message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Tekstil Atıklarına Dur De!</h1>
+            <p>Sürdürülebilir giyim alışkanlıklarıyla dünyamızı koruyalım.</p>
+            <a href="#about" class="cta-button">Hikayemizi Keşfet</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Büyük Bir Sorun: Tekstil Atıkları</h2>
+                <p>Her yıl milyonlarca ton giysi çöpe atılıyor. Bu atıklar, su kirliliği ve karbon salınımı gibi ciddi çevre sorunlarına yol açıyor. Sorunun farklı boyutlarını keşfedin.</p>
+                
+                <div class="accordion-grid">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Hızlı Moda</button>
+                        <div class="accordion-content">
+                            <p>Hızlı moda sektörü, ucuz ve kısa ömürlü giysilerin üretimini teşvik eder. Bu durum, sürekli tüketimi artırarak giysi atıklarının çoğalmasına neden olur.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Su Kirliliği</button>
+                        <div class="accordion-content">
+                            <p>Tekstil endüstrisi, boyama ve apre işlemlerinde tonlarca kimyasal kullanır. Bu kimyasallar, arıtılmadan doğaya bırakıldığında su kaynaklarını kirleterek ekosistemlere büyük zarar verir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Karbon Ayak İzi</button>
+                        <div class="accordion-content">
+                            <p>Giyim ürünlerinin üretimi, taşınması ve imhası ciddi miktarda sera gazı salınımına yol açar. Bu süreçler, iklim değişikliğinin en büyük tetikleyicilerinden biridir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="section bg-light">
+            <div class="container">
+                <h2>Sen Neler Yapabilirsin?</h2>
+                <div class="accordion-grid">
+                    <div class="accordion-item">
+                        <button class="accordion-header">Daha Az Tüket</button>
+                        <div class="accordion-content">
+                            <p>İhtiyaç dışı alışverişlerden kaçın ve zamansız, dayanıklı parçalar al. Hızlı moda tuzağına düşmeyerek hem bütçeni hem de doğayı koru.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Yeniden Kullan ve Onar</button>
+                        <div class="accordion-content">
+                            <p>Eski giysilerini çöpe atmak yerine tamir et, farklı bir ürüne dönüştür veya giysi bağış kampanyalarına katıl. Elbiselerin ömrünü uzatmak, en etkili geri dönüşüm yöntemidir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">Akıllı Alışveriş</button>
+                        <div class="accordion-content">
+                            <p>Sürdürülebilir ve etik üretim yapan markaları tercih et. İkinci el ürünlere şans vererek döngüsel ekonomiyi destekle ve yeni üretim ihtiyacını azalt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="signup" class="section">
+            <div class="container">
+                <h2>Bize Katıl ve Haberdar Ol</h2>
+                <p>E-posta bültenimize kaydolarak sürdürülebilir giyimle ilgili en son ipuçlarından, etkinliklerden ve projelerden haberdar ol.</p>
+                <form id="signup-form">
+                    <input type="text" id="name" placeholder="Adınız" required>
+                    <input type="email" id="email" placeholder="E-posta Adresiniz" required>
+                    <button type="submit" class="cta-button">Kaydol</button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sürdürülebilir Giyim. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Kayıt formu işlevselliği
+            const signupForm = document.getElementById('signup-form');
+            const formMessage = document.getElementById('form-message');
+
+            if (signupForm) {
+                signupForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); 
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+
+                    if (name && email) {
+                        console.log(`Kayıt Bilgileri: Ad - ${name}, E-posta - ${email}`);
+                        formMessage.textContent = 'Başarıyla kaydoldunuz. Teşekkür ederiz!';
+                        formMessage.style.color = 'green';
+                        signupForm.reset();
+                    } else {
+                        formMessage.textContent = 'Lütfen tüm alanları doldurun.';
+                        formMessage.style.color = 'red';
+                    }
+                });
+            }
+
+            // Akordeon (açılır-kapanır) işlevselliği
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    // Tıklanan başlığın yanındaki içerik divini seçer
+                    const content = header.nextElementSibling;
+                    
+                    // İçerik divinin 'active' sınıfını açıp kapatır
+                    content.classList.toggle('active');
+
+                    // Başlığın da 'active' sınıfını açıp kapatır (isteğe bağlı stil değişikliği için)
+                    header.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="tr" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürdürülebilir Giyim</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Kodları: Sitenin tasarımı ve görselliği burada tanımlanır. */
+        :root {
+            --primary-color: #55a630;
+            --secondary-color: #8ac926;
+            --text-color: #2b2d42;
+            --bg-light: #f4f6f2;
+            --bg-white: #ffffff;
+            --card-bg: #e9ecef;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            padding-top: 70px; /* Gezinti çubuğu için boşluk bırakılır */
+        }
+
+        /* Gezinti Çubuğu (Navbar) Stilleri */
+        .navbar {
+            position: fixed; /* Sayfada sabit kalır */
+            top: 0;
+            width: 100%;
+            background: var(--bg-white);
+            color: var(--text-color);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .navbar-logo {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .navbar-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x800?text=Giyim+Atiklari+Manzarasi') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        /* Akordeon Kartları için Yeni Stil */
+        .accordion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .accordion-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+        
+        .accordion-header {
+            width: 100%;
+            padding: 30px;
+            border: none;
+            background-color: transparent;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+            text-align: center;
+            transition: background-color var(--transition-speed) ease;
+        }
+        
+        .accordion-header:hover, .accordion-header.active {
+            background-color: #d6dbd2;
+        }
+
+        .accordion-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-speed) ease-out;
+        }
+
+        .accordion-content.active {
+            max-height: 500px; /* İçerik boyutu ne kadar olursa olsun açılmasını sağlar */
+        }
+
+        .accordion-content p {
+            margin: 0 0 30px 0;
+        }
+
+        /* Kayıt Formu ve Footer stili */
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        #contact-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #contact-form button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        #form-message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="navbar-brand">
+                <img src="c:\Users\CASPER\Desktop\olive-leaf-vector-olive-branch-illustration-cartoon-sticker-cartoon_585097_wh860.png" alt="Logo" class="navbar-logo">
+                Sürdürülebilir Giyim
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#faq">Sorular</a></li>
+                <li><a href="#contact">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Tekstil Atıklarına Dur De!</h1>
+            <p>Sürdürülebilir giyim alışkanlıklarıyla dünyamızı koruyalım.</p>
+            <a href="#faq" class="cta-button">Bilgi Al</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="faq" class="section">
+            <div class="container">
+                <h2>Sıkça Sorulan Sorular</h2>
+                <p>Tekstil endüstrisinin çevreye olan etkilerini daha yakından tanıyın ve sürdürülebilir çözümler hakkında bilgi edinin.</p>
+                <div class="accordion-grid">
+                    <div class="accordion-item">
+                        <button class="accordion-header">1. Hızlı moda nedir ve çevreye zararları nelerdir?</button>
+                        <div class="accordion-content">
+                            <p>Hızlı moda, ucuz, trend odaklı ve kısa ömürlü giysilerin hızlı üretimi anlamına gelir. Bu model, aşırı tüketimi teşvik ederek büyük miktarda tekstil atığının oluşmasına, su ve enerji israfına yol açar.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">2. Tekstil atıklarının geri dönüşümü mümkün müdür?</button>
+                        <div class="accordion-content">
+                            <p>Evet, mümkündür. Pamuklu, yünlü veya sentetik kumaşlar gibi malzemeler, liflerine ayrılarak yeni iplikler veya yalıtım malzemeleri gibi farklı ürünlere dönüştürülebilir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">3. Organik pamuk neden daha sürdürülebilirdir?</button>
+                        <div class="accordion-content">
+                            <p>Organik pamuk, üretiminde zararlı kimyasal böcek ilaçları ve gübreler kullanılmadan yetiştirilir. Bu sayede toprağın ve su kaynaklarının kirlenmesi önlenir, aynı zamanda çiftçilerin sağlığı korunur.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">4. Su ayak izi nedir ve tekstil sektöründeki önemi nedir?</button>
+                        <div class="accordion-content">
+                            <p>Su ayak izi, bir ürünün üretiminde kullanılan toplam su miktarını ifade eder. Bir tişörtün üretiminde 2,700 litreye kadar su harcanabilir, bu da tekstil sektörünün en büyük su tüketicilerinden biri olduğunu gösterir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">5. Geri dönüştürülmüş polyester (rPET) nedir?</button>
+                        <div class="accordion-content">
+                            <p>rPET, plastik şişelerin geri dönüştürülmesiyle elde edilen bir kumaş türüdür. Geleneksel polyestere göre daha az enerji ve petrol tüketimi gerektirdiği için daha çevre dostu bir alternatiftir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">6. Giysilerimi bağışlamak neden önemlidir?</button>
+                        <div class="accordion-content">
+                            <p>Giysilerinizi bağışlamak, ürünün ömrünü uzatarak atık miktarını azaltır. Bu aynı zamanda ihtiyacı olan insanlara da yardımcı olur ve döngüsel ekonomiyi destekler.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">7. Bir giysinin üretiminde ne gibi kimyasallar kullanılır?</button>
+                        <div class="accordion-content">
+                            <p>Üretim sırasında boyalar, ağartıcılar, formaldehit ve ağır metaller gibi birçok toksik kimyasal kullanılır. Bu maddeler, hem çevre hem de insan sağlığı için risk oluşturur.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">8. Mikrofiber kirliliği nedir?</button>
+                        <div class="accordion-content">
+                            <p>Polyester gibi sentetik kumaşlar, yıkandıklarında küçük plastik parçacıkları olan mikrofiberleri suya bırakır. Bu mikrofiberler, sucul yaşam tarafından yutulabilir ve besin zincirine girebilir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">9. Sürdürülebilir bir gardırop nasıl oluşturulur?</button>
+                        <div class="accordion-content">
+                            <p>Daha az ürün satın alarak, ikinci el giysilere yönelerek, kaliteli ve uzun ömürlü parçalar seçerek ve giysilerinize iyi bakarak sürdürülebilir bir gardırop oluşturabilirsiniz.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">10. Tekstil sektörünün karbon ayak izi ne kadar büyüktür?</button>
+                        <div class="accordion-content">
+                            <p>Uluslararası veriler, tekstil endüstrisinin küresel karbon emisyonlarının %10'undan sorumlu olduğunu göstermektedir. Bu oran, havacılık ve deniz taşımacılığı endüstrilerinin toplam emisyonlarından daha fazladır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-light">
+            <div class="container">
+                <h2>Bize Katıl ve Haberdar Ol</h2>
+                <p>E-posta bültenimize kaydolarak sürdürülebilir giyimle ilgili en son ipuçlarından, etkinliklerden ve projelerden haberdar ol.</p>
+                <form id="contact-form">
+                    <input type="text" id="name" placeholder="Adınız" required>
+                    <input type="email" id="email" placeholder="E-posta Adresiniz" required>
+                    <button type="submit" class="cta-button">Kaydol</button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sürdürülebilir Giyim. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Kayıt formu işlevselliği
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); 
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+
+                    if (name && email) {
+                        console.log(`Kayıt Bilgileri: Ad - ${name}, E-posta - ${email}`);
+                        formMessage.textContent = 'Başarıyla kaydoldunuz. Teşekkür ederiz!';
+                        formMessage.style.color = 'green';
+                        contactForm.reset();
+                    } else {
+                        formMessage.textContent = 'Lütfen tüm alanları doldurun.';
+                        formMessage.style.color = 'red';
+                    }
+                });
+            }
+
+            // Akordeon (açılır-kapanır) işlevselliği
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    content.classList.toggle('active');
+                    header.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
